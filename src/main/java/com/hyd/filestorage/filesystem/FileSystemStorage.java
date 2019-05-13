@@ -6,13 +6,19 @@ import java.net.URI;
 
 public class FileSystemStorage implements Storage {
 
-    @Override
-    public String getScheme() {
-        return "file";
+    private URI root;
+
+    public FileSystemStorage(URI root) {
+        this.root = root;
     }
 
     @Override
-    public Content getContent(URI uri) {
-        return new TextFileContent(uri);
+    public URI getUri() {
+        return root;
+    }
+
+    @Override
+    public Content getContent(String path) {
+        return new TextFileContent(this.root.resolve(path));
     }
 }

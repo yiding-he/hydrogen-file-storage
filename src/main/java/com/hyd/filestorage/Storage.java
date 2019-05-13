@@ -4,7 +4,7 @@ import java.net.URI;
 
 public interface Storage {
 
-    String getScheme();
+    URI getUri();
 
-    Content getContent(URI uri);
+    Content getContent(String path);
 }

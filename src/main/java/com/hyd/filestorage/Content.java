@@ -7,7 +7,9 @@ public interface Content {
 
     URI getUri();
 
+    // read bytes from Content
     byte[] getContent() throws IOException;
 
+    // write bytes to Content
     void setContent(byte[] content) throws IOException;
 }
